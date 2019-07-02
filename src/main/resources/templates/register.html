@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      >
 <head>
   <title>SPassword Manager Usability Test</title>
+  <style>
+    div.ex1 {
+      width:80%;
+      height: 150px;
+      margin: auto;
+      font-size: 40px;
+    }
+
+    input.ex2 {
+      width:70%;
+      height: 100px;
+      margin: auto;
+    }
+
+    input.ex3 {
+      width:30%;
+      height: 100px;
+      margin: auto;
+    }
+
+    label.ex4 {
+      width:70%;
+      height: 100px;
+      margin: auto;
+      font-size: 40px;
+    }
+
+    body.ex5 {
+      width:80%;
+      margin: auto;
+      text-align: center;
+    }
+  </style>
 </head>
-<body>
+<body class="ex5">
 <div th:if="${param.error}">
   Invalid username and password.
 </div>
 <div th:if="${param.logout}">
   You have been logged out.
 </div>
-<form th:action="@{/createUser}"  method="post" th:object="${user}">
-  <div><label> E-Mail : <input type="text" name="email" th:field="*{email}" /> </label></div>
-  <div><label> Password: <input type="password" name="password" th:field="*{password}"/> </label></div>
-  <div><input type="submit" value="register"/></div>
+<form  th:action="@{/createUser}"  method="post" th:object="${user}">
+  <div class="ex1"><label class="ex4"> E-Mail:</br><input class="ex2" type="text" name="email" th:field="*{email}" /> </label></div>
+  <div class="ex1"><label class="ex4"> Password:</br><input class="ex2" type="password" name="password" th:field="*{password}"/> </label></div>
+  <div class="ex1"><input class="ex3" type="submit" value="register"/></div>
 </form>
 </body>
 </html>
